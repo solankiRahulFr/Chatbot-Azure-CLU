@@ -98,7 +98,6 @@ class FlightBookingRecognizer {
     getBudget(response) {
         var result = response.result.prediction;
         let budget;
-        console.log("budget", budget)
         for (const entity of result.entities) {
             if (entity.category === 'budget') {
                 budget = entity.text;

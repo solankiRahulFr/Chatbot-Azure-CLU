@@ -43,7 +43,7 @@ class BookingDialog extends CancelAndHelpDialog {
         const bookingDetails = stepContext.options;
 
         if (!bookingDetails.dst_city) {
-            const messageText = 'To what city would you like to fly to?';
+            const messageText = 'Hello, To what city would you like to travel ?';
             const msg = MessageFactory.text(messageText, messageText, InputHints.ExpectingInput);
             return await stepContext.prompt(TEXT_PROMPT, { prompt: msg });
         }
@@ -123,7 +123,6 @@ class BookingDialog extends CancelAndHelpDialog {
      * Confirm the information the user has provided.
      */
     async confirmStep(stepContext) {
-        console.log(stepContext.options, stepContext.result)
         const bookingDetails = stepContext.options;
         // Capture the results of the previous step
         const cluResult = await this.cluRecognizer.basicCluQuery(stepContext.result)
