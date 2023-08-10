@@ -23,7 +23,6 @@
         "botbuilder": "~4.15.0",
         "botbuilder-ai": "~4.15.0",
         "botbuilder-dialogs": "~4.15.0",
-        "botbuilder-testing": "~4.15.0",
         "dotenv": "~8.2.0",
         "restify": "^11.1.0",
         "mocha": "^7.1.2",
