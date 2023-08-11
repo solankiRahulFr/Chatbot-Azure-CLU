@@ -12,11 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: 
-      CluProjectName: ${{vars.CluProjectName}}
-      CluDeploymentName: ${{vars.CluDeploymentName}}
-      CluAPIHostName: ${{vars.CluAPIHostName}}
-      CluAPIKey: ${{secrets.CluAPIKey}}
     steps:
       - uses: actions/checkout@v2
 
