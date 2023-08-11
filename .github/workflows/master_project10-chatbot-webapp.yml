@@ -39,6 +39,11 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    env: 
+      CluProjectName: ${{vars.CluProjectName}}
+      CluDeploymentName: ${{vars.CluDeploymentName}}
+      CluAPIHostName: ${{vars.CluAPIHostName}}
+      CluAPIKey: ${{secrets.CluAPIKey}}
     needs: build
     environment:
       name: 'Production'
