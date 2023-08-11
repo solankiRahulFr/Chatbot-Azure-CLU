@@ -55,13 +55,6 @@ class BookingDialog extends CancelAndHelpDialog {
      */
     async originStep(stepContext) {
         const bookingDetails = stepContext.options;
-        // try{
-        //     const cluResult = await this.cluRecognizer.basicCluQuery(stepContext.options);
-        //     console.log("++++++++++++++",cluResult.result.prediction.entities)
-        // }
-        // catch{
-        //     console.log("wow")
-        // }
   
         // Capture the response to the previous step's prompt
         bookingDetails.dst_city = stepContext.result;

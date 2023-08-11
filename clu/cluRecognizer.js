@@ -18,15 +18,14 @@ class CluRecognizer {
         return await this.recognizeInternalAsync(utterance, turnContext);
     }
 
-    async recognizeAsyncNormal(text) {
-        let utt = text;
+    async recognizeAsyncNormal(utterance) {
         let req =
         {
             analysisInput:
             {
                 conversationItem:
                 {
-                    text: utt,
+                    text: utterance,
                     id: '1',
                     participantId: '1'
                 }
