@@ -112,6 +112,20 @@ server.post('/api/messages', async (req, res) => {
     await adapter.process(req, res, (context) => bot.run(context));
 });
 
+// Listen for HTML page.
+server.get('/', (req, res, next) => {
+    // Route received a request to adapter for processing
+    fs.readFile('./index.html', 'utf8', (err, data) => {
+        if (err) {
+          res.send(500, 'Error reading HTML file');
+        } else {
+          res.setHeader('Content-Type', 'text/html');
+          res.sendRaw(200, data);
+        }
+        next();
+      });
+});
+
 // Listen for Upgrade requests for Streaming.
 server.on('upgrade', async (req, socket, head) => {
     // Create an adapter scoped to this WebSocket connection to allow storing session data.
