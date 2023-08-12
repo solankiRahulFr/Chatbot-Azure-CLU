@@ -5,7 +5,7 @@
 
 // Import required packages
 const path = require('path');
-
+const fs = require('fs');
 // Note: Ensure you have a .env file and include CluAppId, CluAPIKey and CluAPIHostName.
 const ENV_FILE = path.join(__dirname, '.env');
 require('dotenv').config({ path: ENV_FILE });
