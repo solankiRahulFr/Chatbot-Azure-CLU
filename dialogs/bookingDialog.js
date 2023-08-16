@@ -118,14 +118,16 @@ class BookingDialog extends CancelAndHelpDialog {
     async confirmStep(stepContext) {
         const bookingDetails = stepContext.options;
         // Capture the results of the previous step
-        const cluResult = await this.cluRecognizer.basicCluQuery(stepContext.result)
-        let bud = this.cluRecognizer.getBudget(cluResult)
-        if (/^[A-Za-z0-9]*$/.test(bud)){
-            bookingDetails.budget = bud.replace(/[^0-9]/g, '') + " USD";
+        let bud = stepContext.result;
+        let BudgetNumber = "";
+        if (/[a-zA-Z]/g.test(bud)){
+            BudgetNumber = bud.replace(/\D/g, '')
         }
         else{
-            bookingDetails.budget = bud
+            BudgetNumber = bud
         }
+        const cluResult = await this.cluRecognizer.basicCluQuery(BudgetNumber)
+        bookingDetails.budget = this.cluRecognizer.getBudget(cluResult) + " USD"
         
         const messageText = `Please confirm the flight details, you will be flying to: ${ bookingDetails.dst_city } from: ${ bookingDetails.or_city } on date: ${ bookingDetails.str_date } and returning on ${bookingDetails.end_date} and you have a budget of ${bookingDetails.budget}. Is this correct?`;
         const msg = MessageFactory.text(messageText, messageText, InputHints.ExpectingInput);
