@@ -12,6 +12,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      CluProjectName: ${{vars.CluProjectName}}
+      CluDeploymentName: ${{vars.CluDeploymentName}}
+      CluAPIHostName: ${{vars.CluAPIHostName}}
+      CluAPIKey: ${{secrets.CluAPIKey}}
     steps:
       - uses: actions/checkout@v2
 
@@ -34,11 +39,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    env: 
-      CluProjectName: ${{vars.CluProjectName}}
-      CluDeploymentName: ${{vars.CluDeploymentName}}
-      CluAPIHostName: ${{vars.CluAPIHostName}}
-      CluAPIKey: ${{secrets.CluAPIKey}}
     needs: build
     environment:
       name: 'Production'
