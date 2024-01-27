@@ -1,4 +1,5 @@
-# CoreBot With CLU for JavaScript
+# Chatbot to help users choose a travel offer Azure CLU BotFramework Azure Web App Bot Framework Emulator
+## CoreBot With CLU for JavaScript
 
 Bot Framework v4 core bot sample using the CLU Recognizer.
 
